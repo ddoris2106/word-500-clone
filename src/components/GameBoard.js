@@ -9,11 +9,13 @@ function GameBoard() {
 			<Grid
 				id="guessGrid"
 				columnCount="5"
+				startingColumnIdx="0"
 				rowCount="8"
 			/>
 			<Grid
 				id="resultsGrid"
 				columnCount="3"
+				startingColumnIdx="5"
 				rowCount="8"
 			/>
 		</div>

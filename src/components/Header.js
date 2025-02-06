@@ -7,7 +7,7 @@ function Header() {
 		<div>
 			<h1
 				id="title"
-				className="text-appGrey text-lg text-center"
+				className="text-appGrey text-lg text-center pt-14"
 			>
 				Word500
 			</h1>
