@@ -11,12 +11,14 @@ function GameBoard() {
 				columnCount="5"
 				startingColumnIdx="0"
 				rowCount="8"
+				colored="no"
 			/>
 			<Grid
 				id="resultsGrid"
 				columnCount="3"
 				startingColumnIdx="5"
 				rowCount="8"
+				colored="yes"
 			/>
 		</div>
 	);
