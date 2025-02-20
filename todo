@@ -1,0 +1,47 @@
+Rules:
+User enters a valid 5 letter word and a count shows up of the number of greens, yellows, and reds in the word
+The user continues to enter a guess until the correct answer is guessed or until run out of guesses
+Click logo to reset coloring
+
+Order:
+Highlight the border of cells in the current row
+If 5 letters are not entered, Allow user to enter a letter in current row
+Check if letters make a valid word
+-- if word contains "-", dont submit as guess
+-- if invalid guess, turn text red and strikethrough
+Submit guess
+Count the number of in place, out of place letters in guess to correct word
+When guess is submitted, allow user to color their own guesses
+When last guess is submitted, do animation to show correct coloring
+
+TO DO
+
+-   Add keypress listener
+-   Add state for current row/tile
+-   Add func to pass letters to tile
+-   Add keyboard lock
+-   Add tile clickable state
+-   Add func to submit guess/ check if guess is valid
+-   Add func to analyze guess and update results grid
+
+Parent
+
+-   set clickable/unclickable on non active rows
+-   set keyboard lock on non active rows
+
+-   results func that takes the results of the comparison
+-   update tile color func at the end of game that tells how to color tile
+
+Child
+
+-   cycle state when clicked on (red, yellow, green, transparent)
+-   clickable && cycled color
+
+Local storage to store daily word and users guesses?
+Store each guess and its results in storage so it can be retrieved
+
+Disp:
+8x5 grid next to a 8x3 green, yellow, red colored grid
+Five empty boxes w/ white border
+Beside the empty boxes are 3 colored boxes, green, yellow, and red
+Keyboard displayed on bottom of screen under grid, letters used are greyed out

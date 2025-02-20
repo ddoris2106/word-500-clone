@@ -8,17 +8,17 @@ function GameBoard() {
 		<div className="flex flex-row content-center justify-center w-full gap-x-4">
 			<Grid
 				id="guessGrid"
+				gridType="guessGrid"
 				columnCount="5"
 				startingColumnIdx="0"
 				rowCount="8"
-				colored="no"
 			/>
 			<Grid
 				id="resultsGrid"
+				gridType="resultsGrid"
 				columnCount="3"
 				startingColumnIdx="5"
 				rowCount="8"
-				colored="yes"
 			/>
 		</div>
 	);

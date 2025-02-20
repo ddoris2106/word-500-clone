@@ -21,7 +21,9 @@ function Tile({ idx, row, columnCount, colored }) {
 		<div
 			id={idx}
 			className={`w-14 h-14 p-1 text-xl text-appGrey border border-solid rounded-md border-appGrey ${
-				colored === "yes" ? bgColors[columnCount] : "bg-transparent"
+				gridType === "guessGrid"
+					? "change on click"
+					: bgColors[columnCount]
 			}`}
 		></div>
 	);

@@ -2,7 +2,7 @@ import React from "react";
 import Tile from "./Tile";
 
 // Contains the row of x amount of tiles
-function WordRow({ rowIndex, columnCount, startingColumnIdx, colored }) {
+function WordRow({ gridType, rowIndex, columnCount, startingColumnIdx }) {
 	const rowTiles = [];
 
 	let limit = parseInt(startingColumnIdx) + parseInt(columnCount);
@@ -16,9 +16,9 @@ function WordRow({ rowIndex, columnCount, startingColumnIdx, colored }) {
 		rowTiles.push(
 			<Tile
 				idx={idx}
+				gridType={gridType}
 				row={rowIndex}
 				columnCount={colIdx}
-				colored={colored}
 			/>
 		);
 	}

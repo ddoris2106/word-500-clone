@@ -9,6 +9,7 @@ module.exports = {
 				appRed: "#ff6868",
 				appBlack: "#121213",
 				appGrey: "#d3d3d3",
+				appHighlight: "#f2f2f2",
 				appWhite: "#fff",
 			},
 		},

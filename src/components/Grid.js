@@ -4,7 +4,7 @@ import WordRow from "./WordRow";
 // Return a grid with a certain length and width
 // Take props to style grid?
 
-function Grid({ id, startingColumnIdx, columnCount, rowCount, colored }) {
+function Grid({ id, gridType, startingColumnIdx, columnCount, rowCount }) {
 	const gridRows = [];
 
 	// print the number of rows needed in
@@ -13,10 +13,10 @@ function Grid({ id, startingColumnIdx, columnCount, rowCount, colored }) {
 
 		gridRows.push(
 			<WordRow
+				gridType={gridType}
 				rowIndex={index}
 				columnCount={columnCount}
 				startingColumnIdx={startingColumnIdx}
-				colored={colored}
 			/>
 		);
 	}
