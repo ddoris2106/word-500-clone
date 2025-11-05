@@ -2,20 +2,27 @@ import React from "react";
 
 // Standard Tile in the Grid
 
-function Tile({ idx, row, columnCount, colored }) {
+
+// Change to take in initial color
+// Add state for tile color
+function Tile({ idx, gridType, value, row, columnCount }) {
 	// console.log(idx);
 
-	console.log({
-		index: idx,
-		row: row,
-		column: columnCount,
-	});
+	// console.log({
+	// 	index: idx,
+	// 	row: row,
+	// 	column: columnCount,
+	// });
 
-	const bgColors = {
-		5: "bg-appGreen",
-		6: "bg-appYellow",
-		7: "bg-appRed",
-	};
+	/*
+	CONCAT IDX TO GET COLUMN INSTEAD OF PASSING COLUMN COUNT
+	*/
+
+	// const bgColors = {
+	// 	5: "bg-appGreen",
+	// 	6: "bg-appYellow",
+	// 	7: "bg-appRed",
+	// };
 
 	return (
 		<div
@@ -25,7 +32,7 @@ function Tile({ idx, row, columnCount, colored }) {
 					? "change on click"
 					: bgColors[columnCount]
 			}`}
-		></div>
+		>{value}</div>
 	);
 }
 

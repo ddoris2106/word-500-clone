@@ -1,22 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import Tile from "./Tile";
+
+import handleLockStatus from "../utils/handleLockStatus";
+
+// import { currentRow, currentTileIndex } from "./recoil_state";
+
+
+// Restructure to pass {children} as props and render {children}
+
 
 // Contains the row of x amount of tiles
 function WordRow({ gridType, rowIndex, columnCount, startingColumnIdx }) {
 	const rowTiles = [];
 
+	const userGuess = useState([]);
+	// rowLock = handleLockStatus({ rowIndex, currentRow });
+
+	/*************** 
+	ADD KEYPRESS FUNCTIONALITY
+	UPDATE GUESS
+		PUSH INPUT TO GUESS ARRAY
+
+	****************/
+
+	// Index limit??
 	let limit = parseInt(startingColumnIdx) + parseInt(columnCount);
 
 	// const poulateRow = (rowIndex, columnCount) => {
 	for (let colIdx = parseInt(startingColumnIdx); colIdx < limit; colIdx++) {
 		let idx = `${rowIndex}-${colIdx}`;
 
-		// console.log(idx);
+		// ADD ROW LOCK AROUND THIS SECTION BELOW
+
+		let tileValue = "";
+		if (gridType == "guessGrid") {
+			tileValue = userGuess[colIdx];
+		} else if (gridType == "guessGrid") {
+			tileValue = "";
+		}
 
 		rowTiles.push(
 			<Tile
 				idx={idx}
 				gridType={gridType}
+				value={tileValue}
 				row={rowIndex}
 				columnCount={colIdx}
 			/>
@@ -29,7 +56,9 @@ function WordRow({ gridType, rowIndex, columnCount, startingColumnIdx }) {
 	// console.log(rowTiles);
 
 	return (
-		<div className="flex flex-row gap-1 w-full h-auto bg-transparent">
+		<div
+			// id={rowIndex} 
+			className="flex flex-row gap-1 w-full h-auto bg-transparent">
 			{rowTiles}
 		</div>
 	);

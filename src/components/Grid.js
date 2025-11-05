@@ -24,8 +24,7 @@ function Grid({ id, gridType, startingColumnIdx, columnCount, rowCount }) {
 	return (
 		<div
 			id={id}
-			className="flex flex-col gap-1"
-		>
+			className="flex flex-col gap-1">
 			{gridRows}
 		</div>
 	);
