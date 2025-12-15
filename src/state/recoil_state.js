@@ -11,7 +11,7 @@ const currentTileIndex = atom({
 });
 
 // Store the current user submitted guess
-const currentGuess = aton({
+const currentGuess = atom({
 	key: "UserGuess",
 	default: "",
 });

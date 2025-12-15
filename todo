@@ -6,7 +6,7 @@ TO DO
     -   Differentiate functionality in gridrow for grid type
 
 -   Add keypress listener
-    - Keyboard util to limit input to letters, backspace, underscore, and enter keys
+    -   Keyboard util to limit input to letters, backspace, underscore, and enter keys
 -   Add func to pass letters to tile
 
 -   Add tile clickable state
@@ -29,12 +29,6 @@ Child
 Local storage to store daily word and users guesses?
 Store each guess and its results in storage so it can be retrieved
 
-
 PROGRESS TRACKER
--separated grid data into object componentr rather that passing as props
--rendering all grids/rows/tiles at once
--passed index and color to tile; set up to pass value and color cycling through clicking
 
 Clean-up/complete
--Change props for Grid, wordrow, and tile
--change result renders for components to show children
