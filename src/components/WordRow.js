@@ -1,19 +1,16 @@
 import React, { useState } from "react";
-import Tile from "./Tile";
 
-import handleLockStatus from "../utils/handleLockStatus";
+// import handleLockStatus from "../utils/handleLockStatus";
 
 // import { currentRow, currentTileIndex } from "./recoil_state";
 
-
 // Restructure to pass {children} as props and render {children}
 
-
 // Contains the row of x amount of tiles
-function WordRow({ gridType, rowIndex, columnCount, startingColumnIdx }) {
-	const rowTiles = [];
+function WordRow({ rowIndex, children }) {
+	// const rowTiles = [];
 
-	const userGuess = useState([]);
+	// const userGuess = useState([]);
 	// rowLock = handleLockStatus({ rowIndex, currentRow });
 
 	/*************** 
@@ -24,42 +21,32 @@ function WordRow({ gridType, rowIndex, columnCount, startingColumnIdx }) {
 	****************/
 
 	// Index limit??
-	let limit = parseInt(startingColumnIdx) + parseInt(columnCount);
+	// let limit = parseInt(startingColumnIdx) + parseInt(columnCount);
 
-	// const poulateRow = (rowIndex, columnCount) => {
-	for (let colIdx = parseInt(startingColumnIdx); colIdx < limit; colIdx++) {
-		let idx = `${rowIndex}-${colIdx}`;
+	// // const poulateRow = (rowIndex, columnCount) => {
+	// for (let colIdx = parseInt(startingColumnIdx); colIdx < limit; colIdx++) {
+	// 	let idx = `${rowIndex}-${colIdx}`;
 
-		// ADD ROW LOCK AROUND THIS SECTION BELOW
+	// 	// ADD ROW LOCK AROUND THIS SECTION BELOW
 
-		let tileValue = "";
-		if (gridType == "guessGrid") {
-			tileValue = userGuess[colIdx];
-		} else if (gridType == "guessGrid") {
-			tileValue = "";
-		}
+	// 	let tileValue = "";
+	// 	if (gridType == "guessGrid") {
+	// 		tileValue = userGuess[colIdx];
+	// 	} else if (gridType == "guessGrid") {
+	// 		tileValue = "";
+	// 	}
 
-		rowTiles.push(
-			<Tile
-				idx={idx}
-				gridType={gridType}
-				value={tileValue}
-				row={rowIndex}
-				columnCount={colIdx}
-			/>
-		);
-	}
-	// };
+	// 	rowTiles.push(<Tile idx={idx} gridType={gridType} value={tileValue} row={rowIndex} columnCount={colIdx} />);
+	// }
+	// // };
 
 	// poulateRow();
 
 	// console.log(rowTiles);
 
 	return (
-		<div
-			// id={rowIndex} 
-			className="flex flex-row gap-1 w-full h-auto bg-transparent">
-			{rowTiles}
+		<div id={rowIndex} className="flex flex-row gap-1 w-full h-auto bg-transparent">
+			{children}
 		</div>
 	);
 }
