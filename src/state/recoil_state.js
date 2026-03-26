@@ -11,9 +11,20 @@ const currentTileIndex = atom({
 });
 
 // Store the current user submitted guess
-const currentGuess = atom({
+const currentGuessState = atom({
 	key: "UserGuess",
 	default: "",
+});
+
+// Checks if guess is 5 letters long and has no special chacracters
+const validGuess = atom({
+	key: "validGuessState",
+	default: true,
+});
+
+const validWord = atom({
+	key: "validWordState",
+	default: true,
 });
 
 // Record the guesses the user submitted
@@ -22,4 +33,4 @@ const guessHistory = atom({
 	default: [],
 });
 
-export { currentRow, currentTileIndex, currentGuess, guessHistory };
+export { currentRow, currentTileIndex, currentGuessState, validGuess, validWord, guessHistory };
