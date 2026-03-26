@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useStateAccess } from "../utils/state_access";
 
 /*
 Add handlers to modify current Guess State
@@ -7,25 +8,42 @@ Add handler to add to guessHistory state
  - also updates current Row  
 */
 
-// Check if guess is5 letters long
-// if less, add to current guess
-// If 5, allow enter button
+export function useKeyPress(targetKeys, deps = []) {
+	const data = useStateAccess();
+	const { addToCurrentGuess, removeFromCurrentGuess, isValidSubmission } = useStateAccess();
+	// 	currentGuess;
 
-export function useKeyPress(targetKeys, handler, deps = []) {
+	// Functions to access state
+	// modify current guess (get and set)
+	// submit guess to guess History
+
 	useEffect(() => {
-		// Keys to listen for (all letters, backspace, underscore, and enter keys )
-		// On enter, submit guess to recoil state
-		const keys = Array.isArray(targetKeys) ? targetKeys : [targetKeys];
+		const letterKeys = Array.isArray(targetKeys) ? targetKeys : [targetKeys];
 
-		// Check if key pressed is a letter key, add to currentGuess state
-		// If key pressed is a backspace, remove last letter from state
-		// Check if key pressed is an underscore
-		// --do not submit if enter is pressed
 		// If enter is pressed: update guessHistory state by adding currentGuess state
 
-		// --check if guess is in word list; if not, change color to red and strike through
 		function onKeyUp(e) {
-			if (keys.includes(e.key)) handler(e);
+			let currentKey = e.key.toUpperCase();
+
+			console.log(`Key pressed for | ${currentKey} | key`);
+
+			// If invalid word without underscore, strike through
+
+			// Check if key pressed is a letter key, call fucntion to add to currentGuess state
+			if (letterKeys.includes(currentKey)) {
+				addToCurrentGuess(currentKey);
+			}
+
+			// If key pressed is a backspace, call fucntion to remove last letter from state
+			else if (currentKey === "Backspace") {
+				removeFromCurrentGuess();
+				console.log(`Backspace pressed and registered`);
+			}
+
+			// check if key pressed is enter; make sure guess is 5 letters long
+			else if (currentKey === "Enter") {
+				isValidSubmission();
+			}
 		}
 
 		window.addEventListener("keyup", onKeyUp);
